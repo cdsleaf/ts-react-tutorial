@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Greetings from './Greetings';
 import Counter from './Counter';
 import MyForm from './MyForm';
@@ -13,7 +12,7 @@ const App: React.FC = () => {
     console.log(form);
   };
   return (
-    <div className="App">
+    <div>
       <p>Greetings</p>
       <Greetings name="eee" onClick={onClick}/>
       <hr />
