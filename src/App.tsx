@@ -5,6 +5,7 @@ import MyForm from './MyForm';
 import ReducerSample from './ReducerSample';
 import TodoForm from './todolist/TodoForm';
 import TodoList from './todolist/TodoList';
+import { TodosContextProvider } from './todolist/TodosContext';
 
 const App: React.FC = () => {
   const onClick = (name: string) => {
@@ -27,9 +28,11 @@ const App: React.FC = () => {
       <p>ReducerSample</p>
       <ReducerSample />
       <hr />
-      <p>Todo List</p>
-      <TodoForm />
-      <TodoList />
+      <p>Todo List with Context</p>
+        <TodosContextProvider>
+          <TodoForm />
+          <TodoList />
+        </TodosContextProvider>
       <hr />
     </div>
   );

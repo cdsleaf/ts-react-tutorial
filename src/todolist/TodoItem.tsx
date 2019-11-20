@@ -1,12 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { useTodosDispatch, Todo } from './TodosContext';
 
-export type TodoItemProps = {
-  todo: {
-    id: number;
-    text: string;
-    done: boolean;
-  };
+type TodoItemProps = {
+  todo: Todo;
 }
 
 const Text = styled.span<{ done: boolean }>`
@@ -28,10 +25,30 @@ const Remove = styled.span`
 `;
 
 function TodoItem({ todo }: TodoItemProps) {
+  const dispatch = useTodosDispatch();
+
+  const onToggle = () => {
+    dispatch({
+      type: 'TOGGLE',
+      id: todo.id,
+    });
+  };
+
+  const onRemove = () => {
+    dispatch({
+      type: 'REMOVE',
+      id: todo.id,
+    });
+  };
+
   return (
     <li>
-      <Text done={todo.done}>{todo.text}</Text>
-      <Remove>(X)</Remove>
+      <Text done={todo.done} onClick={onToggle}>
+        {todo.text}
+      </Text>
+      <Remove onClick={onRemove}>
+        (X)
+      </Remove>
     </li>
   );
 }
