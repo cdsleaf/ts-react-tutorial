@@ -6,6 +6,7 @@ import ReducerSample from './ReducerSample';
 import TodoForm from './todolist/TodoForm';
 import TodoList from './todolist/TodoList';
 import { TodosContextProvider } from './todolist/TodosContext';
+import ReduxSampleApp from './redux';
 
 const App: React.FC = () => {
   const onClick = (name: string) => {
@@ -29,11 +30,13 @@ const App: React.FC = () => {
       <ReducerSample />
       <hr />
       <p>Todo List with Context</p>
-        <TodosContextProvider>
-          <TodoForm />
-          <TodoList />
-        </TodosContextProvider>
+      <TodosContextProvider>
+        <TodoForm />
+        <TodoList />
+      </TodosContextProvider>
       <hr />
+      <p>Redux Sample App</p>
+      <ReduxSampleApp />
     </div>
   );
 }
