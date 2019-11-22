@@ -37,6 +37,7 @@ const App: React.FC = () => {
       <hr />
       <p>Redux Sample App</p>
       <ReduxSampleApp />
+      <hr/>
     </div>
   );
 }
